@@ -6,14 +6,14 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#insert").click(function() {
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "title=" + title + "&duration=" + duration + "&price=" + price + "&insert=";
-            if ($.trim(title).length > 0 & $.trim(duration).length > 0 & $.trim(price).length > 0) {
+            var nim = $("#nim").val();
+            var nama = $("#nama").val();
+            var kata_mutiara = $("#kata_mutiara").val();
+            var dataString = "&nim=" + nim + "&nama=" + nama + "&kata_mutiara=" + kata_mutiara + "&insert=";
+            if ($.trim(nim).length > 0 & $.trim(nama).length > 0 & $.trim(kata_mutiara).length > 0) {
                 $.ajax({
                     type: "POST",
-                    url: "https://restcordova.000webhostapp.com/insert.php",
+                    url: "https://cordovauas.000webhostapp.com/insert.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -23,7 +23,7 @@
                     success: function(data) {
                         if (data == "success") {
                             alert("inserted");
-                            $("#insert").val('submit');
+                            $("#insert").val('Insert');
                         } else if (data == "error") {
                             alert("error");
                         }
@@ -37,30 +37,26 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
-        <h1 class="title">Insert Database</h1>
-        <a class="button button-clear" href="readjson.html">Read JSON</a>
-    </div>
-    <br/>
-    <br/>
+    <!--<div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <h1 class="title">Input Mahasiswa</h1>
+        <a class="button button-clear" href="readjson.html">Lihat Data Mahasiswa</a>
+    </div>-->
     <div class="list">
+        <div class="login-page">
+  <div class="form">
+    
+    <form class="login-form">
         <input type="hidden" id="id" value="" />
-        <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
-        </div>
-        <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
-        </div>
-        <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
-        </div>
-        <div class="item">
-            <input type="button" id="insert" class="button button-block" value="Insert" />
-        </div>
+      <input type="text" id="nim" value="" placeholder="NIM"/>
+      <input type="text" id="nama" value="" placeholder="Nama"/>
+      <input type="text" id="kata_mutiara" value="" placeholder="Kata Mutiara"/>
+      <button id="insert" value="Insert">Insert</button>
+    </form>
+    <p class="message">Lihat Data Mahasiswa <a href="readjson.html">Go . . . !</a></p>
+  </div>
+</div>
     </div>
+    
 </body>
 
 </html>

@@ -5,15 +5,15 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        var url = "https://restcordova.000webhostapp.com/json.php";
+        var url = "https://cordovauas.000webhostapp.com/json.php";
         $.getJSON(url, function(result) {
             console.log(result);
             $.each(result, function(i, field) {
                 var id = field.id;
-                var title = field.title;
-                var duration = field.duration;
-                var price = field.price;
-                $("#listview").append("<a class='item' href='form.html?id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "'><span class='item-note'>$" + price + "</span><h2>" + title + " </h2><p>" + duration + "</p></a>");
+                var nim = field.nim;
+                var nama = field.nama;
+                var kata_mutiara = field.kata_mutiara;
+                 $("#listview").append("<a class='item' href='form.html?id=" + id + "&nim=" + nim + "&nama=" + nama + "&kata_mutiara=" + kata_mutiara + "'><span class='item-note'>" + kata_mutiara + "</span><h2>" + nim + " </h2><p>" + nama + "</p></a>");
             });
         });
     });
@@ -21,14 +21,27 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+    <!--<div class="bar bar-header bar-positive" style="margin-bottom:80px;">
         <a href="index.html" class="button button-clear">Home</a>
-        <h1 class="title">Read Database (JSON)</h1>
-    </div>
+        <h1 class="title">Data Mahasiswa</h1>
+    </div>-->
     <br/>
     <br/>
+    
     <ul class="list" id="listview">
     </ul>
+    <div class="list">
+        <div class="login-page">
+  <div class="form">
+    
+    <form class="login-form">
+      <button formaction="/index.html">Home</button>
+  </form>
+  </div>
+  </div>
+  </div>
+    <br/>
+    <br/>
 </body>
 
 </html>

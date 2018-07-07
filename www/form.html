@@ -7,22 +7,22 @@
     <script type="text/javascript">
     $(document).ready(function() {
         var id = decodeURI(getUrlVars()["id"]);
-        var title = decodeURI(getUrlVars()["title"]);
-        var duration = decodeURI(getUrlVars()["duration"]);
-        var price = decodeURI(getUrlVars()["price"]);
+        var nim = decodeURI(getUrlVars()["nim"]);
+        var nama = decodeURI(getUrlVars()["nama"]);
+        var kata_mutiara = decodeURI(getUrlVars()["kata_mutiara"]);
         $("#id").val(id);
-        $("#title").val(title);
-        $("#duration").val(duration);
-        $("#price").val(price);
+        $("#nim").val(nim);
+        $("#nama").val(nama);
+        $("#kata_mutiara").val(kata_mutiara);
         $("#update").click(function() {
             var id = $("#id").val();
-            var title = $("#title").val();
-            var duration = $("#duration").val();
-            var price = $("#price").val();
-            var dataString = "id=" + id + "&title=" + title + "&duration=" + duration + "&price=" + price + "&update=";
+            var nim = $("#nim").val();
+            var nama = $("#nama").val();
+            var kata_mutiara = $("#kata_mutiara").val();
+            var dataString = "id=" + id + "&nim=" + nim + "&nama=" + nama + "&kata_mutiara=" + kata_mutiara + "&update=";
             $.ajax({
                 type: "POST",
-                url: "https://restcordova.000webhostapp.com/update.php",
+                url: "https://cordovauas.000webhostapp.com/update.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -45,7 +45,7 @@
             var dataString = "id=" + id + "&delete=";
             $.ajax({
                 type: "GET",
-                url: "https://restcordova.000webhostapp.com/delete.php",
+                url: "https://cordovauas.000webhostapp.com/delete.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -68,31 +68,28 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+   <!-- <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
         <a href="index.html" class="button button-clear">Home</a>
-        <h1 class="title">Update Database</h1>
+        <h1 class="title">Update Data Mahasiswa</h1>
         <a class="button button-clear" href="readjson.html">Read JSON</a>
-    </div>
-    <br/>
-    <br/>
+    </div> -->
     <div class="list">
+        <div class="login-page">
+  <div class="form">
+    
+    <form class="login-form">
         <input type="hidden" id="id" value="" />
-        <div class="item">
-            <label>Title</label>
-            <input type="text" id="title" value="" />
-        </div>
-        <div class="item">
-            <label>Duration</label>
-            <input type="text" id="duration" value="" />
-        </div>
-        <div class="item">
-            <label>Price</label>
-            <input type="text" id="price" value="" />
-        </div>
-        <div class="item">
+      <input type="text" id="nim" value="" />
+      <input type="text" id="nama" value="" />
+      <input type="text" id="kata_mutiara" value="" />
+      <div class="item">
             <input type="button" id="update" class="button button-block" value="Update" />
             <input type="button" id="delete" class="button button-block" value="Delete" />
         </div>
+    </form>
+    <p class="message">Lihat Data Mahasiswa <a href="readjson.html">Go . . . !</a></p>
+  </div>
+</div>
     </div>
 </body>
 
